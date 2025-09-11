@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Покупка успешна - CarShop</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+        <a class="navbar-brand" href="/">CarShop</a>
+    </div>
+</nav>
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body text-center">
+                    <div class="mb-4">
+                        <div style="font-size: 4rem;">🎉</div>
+                    </div>
+                    <h2 class="card-title text-success">Поздравляем с покупкой!</h2>
+
+                    <div th:if="${lastPurchase}" class="mb-3">
+                        <p>Вы успешно приобрели:
+                            <strong th:text="${lastPurchase.car.brand + ' ' + lastPurchase.car.model}"></strong>
+                        </p>
+                        <p class="text-muted">Сумма покупки:
+                            <span th:text="${lastPurchase.totalPrice + ' руб.'}"></span>
+                        </p>
+                    </div>
+
+                    <div class="d-grid gap-2 mt-4">
+                        <a th:href="@{/purchases/my}" class="btn btn-primary">📋 Мои покупки</a>
+                        <a th:href="@{/cars}" class="btn btn-outline-secondary">🚗 К автомобилям</a>
+                        <a th:href="@{/}" class="btn btn-outline-primary">🏠 На главную</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
